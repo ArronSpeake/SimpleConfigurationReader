@@ -66,10 +66,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Configuration.cpp" />
+    <ClCompile Include="Utility.cpp" />
     <ClCompile Include="SimpleConfigurationReader.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Configuration.h" />
+    <ClInclude Include="Utility.h" />
     <ClInclude Include="SimpleConfigurationReader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
