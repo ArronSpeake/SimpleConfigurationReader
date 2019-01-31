@@ -65,6 +65,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Configuration.cpp" />
     <ClCompile Include="SimpleConfigurationReader.cpp" />
   </ItemGroup>
   <ItemGroup>
