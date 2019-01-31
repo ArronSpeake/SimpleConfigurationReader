@@ -1,7 +1,11 @@
 #include "SimpleConfigurationReader.h"
 
+#include <fstream>
+
 SimpleConfigurationReader::SimpleConfigurationReader(const std::string& path) {
-  good_ = false;
+  std::ifstream ifstream(path);
+  good_ = ifstream.good();
+
   configuration_ = Configuration();
 }
 
