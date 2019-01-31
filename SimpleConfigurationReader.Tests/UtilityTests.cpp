@@ -51,5 +51,12 @@ public:
         Assert::Fail(L"The incorrect exception was thrown.");
       }
     }
+
+    TEST_METHOD(Strip_Spaces_Around_Word) {
+      std::string word = "   hello  ";
+      Utility::strip(word);
+
+      Assert::AreEqual("hello", word.c_str());
+    }
   };
 }

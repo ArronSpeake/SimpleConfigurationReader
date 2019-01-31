@@ -17,3 +17,7 @@ void Utility::replace(std::string &string, const std::string &substr, const std:
     i += replace.length();
   }
 }
+
+void Utility::strip(std::string &string, const char c) {
+  // TODO
+}
