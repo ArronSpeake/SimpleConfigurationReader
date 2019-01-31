@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleConfigurationReader", "SimpleConfigurationReader\SimpleConfigurationReader.vcxproj", "{C5851372-97E3-4221-B2AE-64B7F43ECA0F}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SimpleConfigurationReader.Tests", "SimpleConfigurationReader.Tests\SimpleConfigurationReader.Tests.vcxproj", "{C9D4FCE0-0F54-4BD9-B587-D72AEA2E35C1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{C5851372-97E3-4221-B2AE-64B7F43ECA0F} = {C5851372-97E3-4221-B2AE-64B7F43ECA0F}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Win32 = Debug|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5851372-97E3-4221-B2AE-64B7F43ECA0F}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C5851372-97E3-4221-B2AE-64B7F43ECA0F}.Debug|Win32.Build.0 = Debug|Win32
+		{C5851372-97E3-4221-B2AE-64B7F43ECA0F}.Release|Win32.ActiveCfg = Release|Win32
+		{C5851372-97E3-4221-B2AE-64B7F43ECA0F}.Release|Win32.Build.0 = Release|Win32
+		{C9D4FCE0-0F54-4BD9-B587-D72AEA2E35C1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C9D4FCE0-0F54-4BD9-B587-D72AEA2E35C1}.Debug|Win32.Build.0 = Debug|Win32
+		{C9D4FCE0-0F54-4BD9-B587-D72AEA2E35C1}.Release|Win32.ActiveCfg = Release|Win32
+		{C9D4FCE0-0F54-4BD9-B587-D72AEA2E35C1}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
