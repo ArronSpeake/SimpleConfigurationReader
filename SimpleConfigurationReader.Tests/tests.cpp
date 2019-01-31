@@ -11,7 +11,7 @@ namespace SimpleConfigurationReaderTests {
   public:
     TEST_METHOD(Can_Read_Empty_File) {
       SimpleConfigurationReader reader("../resources/empty.cfg");
-      Assert::IsTrue(reader.good(), L"reader read a bad file");
+      Assert::IsTrue(reader.good(), L"reader read a bad file"); 
     }
 
 	  TEST_METHOD(Can_Detect_Bad_File) {

@@ -1,11 +1,21 @@
 #include "SimpleConfigurationReader.h"
 
 #include <fstream>
+#include <sstream>
 
-SimpleConfigurationReader::SimpleConfigurationReader(const std::string& path) {
+static bool slurp(const std::string &path, std::string &contents) {
   std::ifstream ifstream(path);
-  good_ = ifstream.good();
+  if (!ifstream.good()) return false;
 
+  std::stringstream stringstream;
+  stringstream << ifstream.rdbuf();
+  contents = stringstream.str();
+
+  return true;
+}
+
+SimpleConfigurationReader::SimpleConfigurationReader(const std::string &path) {
+  good_ = slurp(path, contents_);
   configuration_ = Configuration();
 }
 

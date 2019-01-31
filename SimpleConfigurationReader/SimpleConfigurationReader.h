@@ -12,6 +12,7 @@ public:
   const bool good() const;
 private:
   bool good_;
+  std::string contents_;
   Configuration configuration_;
 };
 
