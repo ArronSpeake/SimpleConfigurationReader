@@ -26,10 +26,10 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SimpleConfigurationReaderTests.cpp">
+    <ClCompile Include="UtilityTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="UtilityTests.cpp">
+    <ClCompile Include="SimpleConfigurationReaderTests.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
