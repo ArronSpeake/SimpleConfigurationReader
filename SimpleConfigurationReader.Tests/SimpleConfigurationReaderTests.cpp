@@ -24,5 +24,11 @@ namespace SimpleConfigurationReaderTests {
       Configuration config = reader.configuration();
       Assert::AreEqual("myFirstValue", config["myFirstProperty"].c_str());
     }
+
+    TEST_METHOD(Can_Read_Whitespace_Padded_Property) {
+      SimpleConfigurationReader reader("../resources/spaced.cfg");
+      Configuration config = reader.configuration();
+      Assert::AreEqual("and spaces", config["tabsAbout"].c_str());
+    }
 	};
 }
