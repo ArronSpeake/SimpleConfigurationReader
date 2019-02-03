@@ -27,3 +27,7 @@ void Utility::strip(std::string &string, const char c) {
     string.erase(string.end() - 1);
   }
 }
+
+void Utility::stripWhitespace(std::string &string) {
+  // TODO
+}

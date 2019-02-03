@@ -27,12 +27,12 @@ static void fixLineEndings(std::string &string) {
 }
 
 static bool formatKey(std::string &key) {
-  Utility::strip(key);
+  Utility::stripWhitespace(key);
   return (key.length() != 0);
 }
 
 static bool formatValue(std::string &value) {
-  Utility::strip(value);
+  Utility::stripWhitespace(value);
 
   if ( (value.length() < 2)
     || (value.front() != '"')

@@ -79,5 +79,12 @@ public:
 
       Assert::AreEqual("rrqrrr", word.c_str());
     }
+
+    TEST_METHOD(Can_Strip_Whitespace) {
+      std::string whitespaces = "\t    \n \n Nice Words, pal.\t\t\n\n\r     \n";
+      Utility::stripWhitespace(whitespaces);
+
+      Assert::AreEqual("Nice, Words, pal.", whitespaces.c_str());
+    }
   };
 }
