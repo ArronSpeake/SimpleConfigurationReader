@@ -17,10 +17,12 @@ static bool slurp(const std::string &path, std::string &contents) {
 }
 
 static void fixLineEndings(std::string &string) {
+  if (string.length() == 0) return;
+
   Utility::replace(string, "\r\n", "\r");
   Utility::replace(string, "\r", "\n");
 
-  if (string.back() != '\n') string.push_back('\n');
+  if (string.back() != '\n') string += '\n';
 }
 
 static void parseLine(const std::string& line) {
