@@ -22,7 +22,7 @@ namespace SimpleConfigurationReaderTests {
     TEST_METHOD(Can_Read_Single_Property) {
       SimpleConfigurationReader reader("../resources/simple.cfg");
       Configuration config = reader.configuration();
-      Assert::AreEqual(config["myFirstProperty"].c_str(), "myFirstValue");
+      Assert::AreEqual("myFirstValue", config["myFirstProperty"].c_str());
     }
 	};
 }

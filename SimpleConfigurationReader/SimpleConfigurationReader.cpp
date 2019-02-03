@@ -2,6 +2,7 @@
 
 #include <fstream>
 #include <sstream>
+#include <vector>
 
 #include "Utility.h"
 
@@ -25,34 +26,62 @@ static void fixLineEndings(std::string &string) {
   if (string.back() != '\n') string += '\n';
 }
 
-static void parseLine(const std::string& line) {
+static bool formatKey(std::string &key) {
+  Utility::strip(key);
+  return (key.length() != 0);
+}
+
+static bool formatValue(std::string &value) {
+  Utility::strip(value);
+
+  if ( (value.length() < 2)
+    || (value.front() != '"')
+    || (value.back() != '"'))
+    return false;
+
+  value = value.substr(1, value.length() - 2);
+  return true;
+}
+
+static bool parseLine(const std::string& line, Property &prop) {
   size_t separator = line.find(':');
   if (separator == std::string::npos) __debugbreak();
   std::string key = line.substr(0, separator);
   std::string value = line.substr(separator + 1);
+
+  bool isValid = formatKey(key) && formatValue(value);
+
+  prop = { key, value };
+  return isValid;
 }
 
-static void parse(std::string document) {
+static Configuration parse(std::string document) {
   fixLineEndings(document);
   
   std::string line;
+  std::vector<Property> properties;
   size_t lineStart = 0;
   while (true) {
     size_t lineEnd = document.find('\n', lineStart);
     if (lineEnd == std::string::npos) break;
     line = document.substr(lineStart, lineEnd);
     
-    parseLine(line);
+    Property prop;
+    bool isValid = parseLine(line, prop);
+
+    if (isValid) {
+      properties.push_back(prop);
+    }
 
     lineStart = lineEnd + 1;
   }
+
+  return Configuration(properties);
 }
 
 SimpleConfigurationReader::SimpleConfigurationReader(const std::string &path) {
   good_ = slurp(path, contents_);
-  configuration_ = Configuration();
-
-  parse(contents_);
+  configuration_ = (good_ ? parse(contents_) : Configuration());
 }
 
 const Configuration SimpleConfigurationReader::configuration() const {

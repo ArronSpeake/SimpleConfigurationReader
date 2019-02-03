@@ -58,5 +58,26 @@ public:
 
       Assert::AreEqual("hello", word.c_str());
     }
+
+    TEST_METHOD(Strip_Other_Char_Around_Word) {
+      std::string word = "qq qhelloqqqqq";
+      Utility::strip(word, 'q');
+
+      Assert::AreEqual(" qhello", word.c_str());
+    }
+
+    TEST_METHOD(Can_Strip_Empty_String) {
+      std::string word = "";
+      Utility::strip(word, 'q');
+
+      Assert::AreEqual("", word.c_str());
+    }
+
+    TEST_METHOD(Can_Strip_Unstrippable_String) {
+      std::string word = "rrqrrr";
+      Utility::strip(word, 'q');
+
+      Assert::AreEqual("rrqrrr", word.c_str());
+    }
   };
 }
