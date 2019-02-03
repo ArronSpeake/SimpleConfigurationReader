@@ -30,5 +30,14 @@ namespace SimpleConfigurationReaderTests {
       Configuration config = reader.configuration();
       Assert::AreEqual("and spaces", config["tabsAbout"].c_str());
     }
+
+    TEST_METHOD(Can_Read_Multiple_Properties) {
+      SimpleConfigurationReader reader("../resources/multiple.cfg");
+      Configuration config = reader.configuration();
+
+      Assert::AreEqual("Nanomachines?", config["__big_boss__"].c_str());
+      Assert::AreEqual("abcdefg, eh", config["alphabet"].c_str());
+      Assert::AreEqual("1, Two, 3.0, four, 5f, Sixteen?", config["numbers"].c_str());
+    }
 	};
 }
