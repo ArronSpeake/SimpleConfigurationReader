@@ -19,5 +19,11 @@ void Utility::replace(std::string &string, const std::string &substr, const std:
 }
 
 void Utility::strip(std::string &string, const char c) {
-  // TODO
+  while ((string.length() > 0) && (string.front() == c)) {
+    string.erase(string.begin());
+  }
+
+  while ((string.length() > 0) && (string.back() == c)) {
+    string.erase(string.end() - 1);
+  }
 }
