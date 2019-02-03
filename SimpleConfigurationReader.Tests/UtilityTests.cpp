@@ -81,10 +81,10 @@ public:
     }
 
     TEST_METHOD(Can_Strip_Whitespace) {
-      std::string whitespaces = "\t    \n \n Nice Words, pal.\t\t\n\n\r     \n";
+      std::string whitespaces = "\t    \n \n Nice words, pal.\t\t\n\n\r     \n";
       Utility::stripWhitespace(whitespaces);
 
-      Assert::AreEqual("Nice, Words, pal.", whitespaces.c_str());
+      Assert::AreEqual("Nice words, pal.", whitespaces.c_str());
     }
   };
 }

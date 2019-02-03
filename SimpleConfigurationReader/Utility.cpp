@@ -28,6 +28,19 @@ void Utility::strip(std::string &string, const char c) {
   }
 }
 
+static const bool isWhitespace(const char c) {
+  const char *whitespace = " \t\n\v\f\r";
+  for (size_t i = 0; i < 7; i++)
+    if (c == whitespace[i]) return true;
+  return false;
+}
+
 void Utility::stripWhitespace(std::string &string) {
-  // TODO
+  while ((string.length() > 0) && isWhitespace(string.front())) {
+    string.erase(string.begin());
+  }
+
+  while ((string.length() > 0) && isWhitespace(string.back())) {
+    string.erase(string.end() - 1);
+  }
 }
