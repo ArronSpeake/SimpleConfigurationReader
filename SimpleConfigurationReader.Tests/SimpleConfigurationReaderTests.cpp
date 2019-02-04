@@ -39,5 +39,18 @@ namespace SimpleConfigurationReaderTests {
       Assert::AreEqual("abcdefg, eh", config["alphabet"].c_str());
       Assert::AreEqual("1, Two, 3.0, four, 5f, Sixteen?", config["numbers"].c_str());
     }
+
+    TEST_METHOD(Throw_On_Bad_Config_Key) {
+      try {
+        Configuration config;
+        std::string y = config["Key That Doesn't Exist"];
+
+        Assert::Fail(L"No exception was thrown.");
+      } catch (std::invalid_argument) {
+        return;
+      } catch (std::exception) {
+        Assert::Fail(L"The incorrect exception was thrown.");
+      }
+    }
 	};
 }
