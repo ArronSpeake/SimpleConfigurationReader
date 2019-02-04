@@ -8,8 +8,9 @@
 class SimpleConfigurationReader {
 public:
   SimpleConfigurationReader(const std::string& path);
-  const Configuration configuration() const;
+
   const bool good() const;
+  const Configuration configuration() const;
 private:
   bool good_;
   std::string contents_;
