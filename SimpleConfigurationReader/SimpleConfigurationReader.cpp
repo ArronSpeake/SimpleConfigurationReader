@@ -64,7 +64,7 @@ static Configuration parse(std::string document) {
   while (true) {
     size_t lineEnd = document.find('\n', lineStart);
     if (lineEnd == std::string::npos) break;
-    line = document.substr(lineStart, lineEnd);
+    line = document.substr(lineStart, lineEnd - lineStart);
     
     Property prop;
     bool isValid = parseLine(line, prop);
