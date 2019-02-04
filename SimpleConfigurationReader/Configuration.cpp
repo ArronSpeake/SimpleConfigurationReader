@@ -12,6 +12,7 @@ Configuration::Configuration(const std::vector<Property> &properties) {
 }
 
 const std::string Configuration::operator[](const std::string& key) const {
-  bool hasKey = (map_.find(key) != map_.end()); // Throw on fail?
-  return hasKey ? map_.at(key) : "";
+  bool hasKey = (map_.find(key) != map_.end());
+  if (!hasKey) throw std::invalid_argument("The provided key does not exist.");
+  return map_.at(key);
 }
