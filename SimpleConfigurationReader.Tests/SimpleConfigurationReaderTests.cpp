@@ -74,7 +74,7 @@ namespace SimpleConfigurationReaderTests {
       SimpleConfigurationReader reader("../resources/multiple.cfg");
       Configuration config = reader.configuration();
 
-      Assert::IsTrue(config.keyExists("Nanomachines?"));
+      Assert::IsTrue(config.keyExists("numbers"));
       Assert::IsFalse(config.keyExists("ABCDE, One I'll count Two Three."));
     }
 	};

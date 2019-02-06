@@ -9,7 +9,7 @@ Configuration::Configuration(const std::vector<Property> &properties) {
 }
 
 const bool Configuration::keyExists(const std::string& key) const {
-  return false;
+  return (map_.find(key) != map_.end());
 }
 
 const std::string Configuration::operator[](const std::string& key) const {
