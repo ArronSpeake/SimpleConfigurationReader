@@ -54,5 +54,20 @@ namespace SimpleConfigurationReaderTests {
         Assert::Fail(L"The incorrect exception was thrown.");
       }
     }
+
+    TEST_METHOD(Can_Find_Errors_In_File) {
+      SimpleConfigurationReader reader("../resources/error.cfg");
+      std::vector<size_t> actual = reader.errorLines();
+      
+      const std::vector<size_t> expected = {
+        0, 2, 3, 4, 5, 8, 9, 10
+      };
+
+      Assert::AreEqual(expected.size(), actual.size());
+
+      for (size_t i = 0; i < expected.size(); i++) {
+        Assert::AreEqual(expected[i], actual[i]);
+      }
+    }
 	};
 }

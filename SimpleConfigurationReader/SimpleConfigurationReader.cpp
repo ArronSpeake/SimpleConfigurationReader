@@ -45,7 +45,7 @@ static bool formatValue(std::string &value) {
 
 static bool parseLine(const std::string& line, Property &prop) {
   size_t separator = line.find(':');
-  if (separator == std::string::npos) __debugbreak();
+  if (separator == std::string::npos) return false;
   std::string key = line.substr(0, separator);
   std::string value = line.substr(separator + 1);
 
@@ -90,4 +90,8 @@ const Configuration SimpleConfigurationReader::configuration() const {
 
 const bool SimpleConfigurationReader::good() const {
   return good_;
+}
+
+const std::vector<size_t> SimpleConfigurationReader::errorLines() const {
+  return errorLines_;
 }

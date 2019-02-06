@@ -11,9 +11,11 @@ public:
 
   const bool good() const;
   const Configuration configuration() const;
+  const std::vector<size_t> errorLines() const;
 private:
   bool good_;
   std::string contents_;
+  std::vector<size_t> errorLines_;
   Configuration configuration_;
 };
 
