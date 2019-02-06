@@ -69,5 +69,13 @@ namespace SimpleConfigurationReaderTests {
         Assert::AreEqual(expected[i], actual[i]);
       }
     }
+
+    TEST_METHOD(Can_Detect_Key_Existence) {
+      SimpleConfigurationReader reader("../resources/multiple.cfg");
+      Configuration config = reader.configuration();
+
+      Assert::IsTrue(config.keyExists("Nanomachines?"));
+      Assert::IsFalse(config.keyExists("ABCDE, One I'll count Two Three."));
+    }
 	};
 }

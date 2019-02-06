@@ -15,6 +15,7 @@ public:
   Configuration();
   Configuration(const std::vector<Property> &properties);
 
+  const bool keyExists(const std::string& key) const;
   const std::string operator[](const std::string& key) const;
 private:
   std::unordered_map<std::string, std::string> map_;
