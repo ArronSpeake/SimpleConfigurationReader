@@ -55,12 +55,15 @@ static bool parseLine(const std::string& line, Property &prop) {
   return isValid;
 }
 
-static Configuration parse(std::string document) {
+Configuration SimpleConfigurationReader::parse(std::string document) {
   fixLineEndings(document);
   
   std::string line;
   std::vector<Property> properties;
+  std::vector<size_t> badLines;
   size_t lineStart = 0;
+  size_t lineNo = 0;
+
   while (true) {
     size_t lineEnd = document.find('\n', lineStart);
     if (lineEnd == std::string::npos) break;
@@ -71,11 +74,15 @@ static Configuration parse(std::string document) {
 
     if (isValid) {
       properties.push_back(prop);
+    } else {
+      badLines.push_back(lineNo);
     }
 
     lineStart = lineEnd + 1;
+    lineNo++;
   }
 
+  errorLines_ = badLines;
   return Configuration(properties);
 }
 

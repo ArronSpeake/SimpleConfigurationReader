@@ -60,7 +60,7 @@ namespace SimpleConfigurationReaderTests {
       std::vector<size_t> actual = reader.errorLines();
       
       const std::vector<size_t> expected = {
-        0, 2, 3, 4, 5, 8, 9, 10
+        0, 2, 3, 4, 7, 8, 9, 10
       };
 
       Assert::AreEqual(expected.size(), actual.size());
