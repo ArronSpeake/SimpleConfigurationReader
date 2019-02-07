@@ -77,5 +77,26 @@ namespace SimpleConfigurationReaderTests {
       Assert::IsTrue(config.keyExists("numbers"));
       Assert::IsFalse(config.keyExists("ABCDE, One I'll count Two Three."));
     }
+
+    TEST_METHOD(Can_Access_Inner_Map) {
+      SimpleConfigurationReader reader("../resources/multiple.cfg");
+      Configuration config = reader.configuration();
+      std::unordered_map<std::string, std::string> map = config.map();
+
+      const std::vector<std::string> keys = {
+        "Nanomachines?", "abcdefg, eh", "1, Two, 3.0, four, 5f, Sixteen?"
+      };
+
+      std::unordered_map<std::string, std::string> expected = {
+        { "Nanomachines?", "__big_boss__" },
+        { "abcdefg, eh", "alphabet" },
+        { "1, Two, 3.0, four, 5f, Sixteen?", "numbers" }
+      };
+
+      Assert::AreEqual(expected.size(), map.size());
+      for (const std::string &key : keys) {
+        Assert::AreEqual(expected[key], map[key]);
+      }
+    }
 	};
 }
