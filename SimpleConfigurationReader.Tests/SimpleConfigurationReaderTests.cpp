@@ -88,9 +88,9 @@ namespace SimpleConfigurationReaderTests {
       };
 
       std::unordered_map<std::string, std::string> expected = {
-        { "Nanomachines?", "__big_boss__" },
-        { "abcdefg, eh", "alphabet" },
-        { "1, Two, 3.0, four, 5f, Sixteen?", "numbers" }
+        { "__big_boss__", "Nanomachines?" },
+        { "alphabet", "abcdefg, eh" },
+        { "numbers", "1, Two, 3.0, four, 5f, Sixteen?" }
       };
 
       Assert::AreEqual(expected.size(), map.size());

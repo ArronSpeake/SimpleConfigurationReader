@@ -9,7 +9,7 @@ Configuration::Configuration(const std::vector<Property> &properties) {
 }
 
 const std::unordered_map<std::string, std::string> &Configuration::map() const {
-  return std::unordered_map<std::string, std::string>();
+  return map_;
 }
 
 const bool Configuration::keyExists(const std::string& key) const {
